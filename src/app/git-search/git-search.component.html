@@ -1,0 +1,24 @@
+<input class="search-field" name="query" placeholder="Search repositories..." [(ngModel)]="searchQuery"/>
+<button class="search-button" (click)="gitSearch()"> Submit </button>
+<div *ngIf='searchResults; else elseBlock'>
+  <h3 class="total"> Total Results: 
+    <span class="highlight">{{searchResults.total_count}}</span>
+  </h3>
+  <ul class="list">
+    <li [ngStyle]="{'background-color': (i % 2 == 0) ? '#ededed' : 'white'}" 
+    *ngFor='let result of searchResults.items; index as i;'>
+
+      <a [href]='result.html_url'>
+        <img class="avatar" [src]='result.owner.avatar_url'/>
+        <h4 class="title">{{result.name | uppercase}}
+          <small> by {{result.owner.login}} </small>
+        </h4>
+      </a>
+      <p class="description"> {{result.description}}</p>
+      <p class="date"> Created On: {{result.created_at | date:'fullDate'}}</p>
+    </li>
+  </ul>
+</div>
+<ng-template #elseBlock>
+  <h3>Loading...</h3>
+</ng-template>

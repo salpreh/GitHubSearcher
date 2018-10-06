@@ -1,0 +1,54 @@
+.search-field {
+    border: 2px solid darkslategray;
+    padding: 6px 4px;
+    font-size: 1.1em;
+}
+.search-field:focus, .search-button:focus {
+    outline-color: darkgreen;
+}
+.search-button {
+    background-color: darkslategray;
+    border: 0px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 8px 14px;
+    margin: 0 0 0 10px;
+}
+.total {
+    font-size: 1.4em;
+}
+
+.highlight {
+    color: darkslategray;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+}
+.list > li {
+    border: 1px solid darkslategray;
+    margin: 10px 0 0 0;
+    padding: 15px 10px;
+    height: 150px;
+}
+.avatar {
+    height: 150px;
+    float: left;
+    border-radius: 5em;
+}
+.list a {
+    text-decoration: none;
+    color: #772222;
+}
+.list a:visited {
+    color: #3a0101;
+}
+.title {
+    font-size: 1.2em;
+}
+.date {
+    font-style: italic;
+    color: gray;
+}
