@@ -33,6 +33,9 @@
     padding: 15px 10px;
     height: 150px;
 }
+.list > .pair-entry {
+    background-color: #ededed;
+}
 .avatar {
     height: 150px;
     float: left;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { GitSearch } from './git-search';
+import { GitRepositories } from './git-repositories';
 import { GitUsers } from './git-users';
 
 @Injectable({
@@ -8,12 +8,12 @@ import { GitUsers } from './git-users';
 })
 export class GitSearchService {
   cachedValues: Array<{
-    [query: string]: GitSearch
+    [query: string]: GitRepositories
   }> = [];
   constructor(private http: HttpClient) { }
 
   gitSearch = (query: string) => {
-    const promise = new Promise<GitSearch>((resolve, reject) => {
+    const promise = new Promise<GitRepositories>((resolve, reject) => {
       if (this.cachedValues[query]) {
         resolve(this.cachedValues[query]);
 
@@ -21,7 +21,7 @@ export class GitSearchService {
         this.http.get('https://api.github.com/search/repositories?q=' + query)
         .toPromise()
         .then((response) => {
-          resolve(response as GitSearch);
+          resolve(response as GitRepositories);
 
         }, (error) => {
           reject(error);

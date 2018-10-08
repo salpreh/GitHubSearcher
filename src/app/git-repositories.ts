@@ -1,4 +1,4 @@
-export interface GitSearch {
+export interface GitRepositories {
     total_count: number;
     incomplete_results: boolean;
     items: Array<
