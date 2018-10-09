@@ -14,9 +14,9 @@ export class GitSearchComponent implements OnInit {
   displayQuery: string;
   searchResults: GitRepositories;
   searchQuery: string;
+  searchPage: number;
   navigationData = {
-    currentPage: 0,
-    entriesXPage: 0,
+    entriesXPage: 30,
     hasNext: false,
     hasPrevious: false
   };
@@ -30,11 +30,10 @@ export class GitSearchComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.searchQuery = params.get('query');
+      this.searchPage = parseInt(params.get('page'), 10);
       this.displayQuery = params.get('query');
       this.gitSearch();
     });
-
-    this.navigationData.currentPage = 1;
 
     this.route.data.subscribe(data => {
       this.title = data.title;
@@ -42,7 +41,7 @@ export class GitSearchComponent implements OnInit {
   }
 
   gitSearch(): void {
-    this.gitSearchService.gitRepositorySearch(this.searchQuery, this.navigationData.currentPage)
+    this.gitSearchService.gitRepositorySearch(this.searchQuery, this.searchPage)
     .then((response) => {
       this.searchResults = response;
       this.checkNavigation();
@@ -53,31 +52,31 @@ export class GitSearchComponent implements OnInit {
 
   nextPage(): void {
     if (this.navigationData.hasNext) {
-      this.navigationData.currentPage++;
-      this.gitSearch();
+      this.searchPage++;
+      this.sendQuery();
     }
   }
 
   previousPage(): void {
     if (this.navigationData.hasPrevious) {
-      this.navigationData.currentPage--;
-      this.gitSearch();
+      this.searchPage--;
+      this.sendQuery();
     }
+  }
+
+  newSearch(): void {
+    this.searchPage = 1;
+    this.sendQuery();
   }
 
   sendQuery(): void {
     this.searchResults = null;
-    this.router.navigate([`/search/${this.searchQuery}`]);
+    this.router.navigate([`/search/${this.searchQuery}/${this.searchPage}`]);
   }
 
   checkNavigation(): void {
-    this.navigationData.hasPrevious = this.navigationData.currentPage > 1;
-
-    if (this.navigationData.currentPage === 1) {
-      this.navigationData.entriesXPage = this.searchResults.items.length;
-    }
-
-    this.navigationData.hasNext = this.searchResults.total_count > this.navigationData.currentPage * this.navigationData.entriesXPage;
+    this.navigationData.hasPrevious = this.searchPage > 1;
+    this.navigationData.hasNext = this.searchResults.total_count > this.searchPage * this.navigationData.entriesXPage;
   }
 
 }
