@@ -6,7 +6,7 @@ import { GitRepositories } from '../git-repositories';
 @Component({
   selector: 'app-git-search',
   templateUrl: './git-search.component.html',
-  styleUrls: ['./git-search.component.css']
+  styleUrls: ['./git-search.component.css', '../app.component.css']
 })
 export class GitSearchComponent implements OnInit {
 

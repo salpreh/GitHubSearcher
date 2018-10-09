@@ -1,8 +1,3 @@
-h1 {
-    color: var(--dark-gray);
-    font-size: 2.8em;
-}
-
 .start-searching {
     text-decoration: none;
 }
@@ -11,21 +6,12 @@ h1 {
     max-width: 400px;
     min-width: 220px;
 }
+.start-searching h2 {
+    font-size: 1.7em;
+}
 .start-searching, .start-searching:visited {
     color: var(--dark-gray);
 }
 .start-searching > img {
     margin-top: 40px;
-}
-button {
-    background-color: var(--dark-gray);
-    border: 0px;
-    color: white;
-    font-size: 1.1em;
-    font-weight: bold;
-    padding: 8px 14px;
-    margin: 0 0 0 20px;
-}
-button:hover { 
-    cursor: pointer;
 }

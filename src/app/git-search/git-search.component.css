@@ -1,30 +1,10 @@
 .search-field {
-    border: 2px solid darkslategray;
+    border: 2px solid var(--dark-gray);
     padding: 6px 4px;
     font-size: 1.1em;
 }
 .search-field:focus {
-    outline-color: darkgreen;
-}
-
-button {
-    background-color: darkslategray;
-    border: 0px;
-    color: white;
-    font-size: 1.1em;
-    font-weight: bold;
-    padding: 8px 14px;
-    margin: 0 0 0 10px;
-}
-button:hover { 
-    cursor: pointer;
-}
-button:focus {
-    outline-color: darkgreen;
-}
-button:disabled {
-    background-color: rgb(118, 153, 153);
-    cursor: default;
+    outline-color: gray;
 }
 
 .total {
@@ -32,38 +12,58 @@ button:disabled {
 }
 
 .highlight {
-    color: darkslategray;
+    color: var(--sat-light-blue);
 }
 
 .list {
     list-style-type: none;
     padding: 0;
+    margin-top: 50px;
 }
 .list > li {
-    border: 1px solid darkslategray;
-    margin: 10px 0 0 0;
+    border: 0;
+    margin: 0;
     padding: 15px 10px;
-    height: 150px;
+    height: 180px;
+}
+@media(max-width: 700px){
+    .list > li {
+        padding: 15px 10px;
+        height: 220px;
+    }
+    .list .avatar {
+        margin: 35px 20px 40px 0;
+    }
 }
 .list > .pair-entry {
-    background-color: #ededed;
+    background-color:var(--lightest-yellow);
 }
 
 .avatar {
     height: 150px;
     float: left;
     border-radius: 5em;
+    margin: 15px 20px 10px 0;
 }
 
 .list a {
     text-decoration: none;
-    color: #772222;
+    color: var(--sat-light-blue);
 }
 .list a:visited {
-    color: #3a0101;
+    color: var(--crimson-red);
 }
 .title {
     font-size: 1.2em;
+}
+.repository-details {
+    margin: auto;
+    text-align: center;
+    width: 95%;
+    display: block;
+}
+.description {
+    line-height: 1.3em;
 }
 .date {
     font-style: italic;

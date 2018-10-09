@@ -5,4 +5,6 @@ body {
     --crimson-red: #9b4439;
     --sat-light-blue: #3e92cc;
     --light-yellow: #e7dba7;
+    --lightest-yellow: #f5f0d8;
+    min-width: 500px;
 }
