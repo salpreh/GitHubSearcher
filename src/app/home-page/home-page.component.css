@@ -17,3 +17,15 @@ h1 {
 .start-searching > img {
     margin-top: 40px;
 }
+button {
+    background-color: var(--dark-gray);
+    border: 0px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 8px 14px;
+    margin: 0 0 0 20px;
+}
+button:hover { 
+    cursor: pointer;
+}
