@@ -1,4 +1,4 @@
-<h1>{{title}} - {{displayQuery}}</h1>
+<h1>{{title}} <small class="highlight">- {{displayQuery}}</small></h1>
 <input class="search-field" name="query" placeholder="Search repositories..." 
  [(ngModel)]="searchQuery" (keyup.enter)="sendQuery()"/>
 
@@ -22,6 +22,10 @@
         <p class="date"> Created On: {{result.created_at | date:'fullDate'}}</p>
       </li>
     </ul>
+    <section>
+      <button [attr.disabled]="navigationData.hasPrevious ? null : ''" (click)="previousPage()"> &lt; Previous </button>
+      <button [attr.disabled]="navigationData.hasNext ? null : ''" (click)="nextPage()"> &gt; Next </button>
+    </section>
   </div>
   <ng-template #noResultsBlock>
     <h3 class="no-results-warning"> No Results Found </h3>

@@ -3,10 +3,11 @@
     padding: 6px 4px;
     font-size: 1.1em;
 }
-.search-field:focus, .search-button:focus {
+.search-field:focus {
     outline-color: darkgreen;
 }
-.search-button {
+
+button {
     background-color: darkslategray;
     border: 0px;
     color: white;
@@ -15,6 +16,17 @@
     padding: 8px 14px;
     margin: 0 0 0 10px;
 }
+button:hover { 
+    cursor: pointer;
+}
+button:focus {
+    outline-color: darkgreen;
+}
+button:disabled {
+    background-color: rgb(118, 153, 153);
+    cursor: default;
+}
+
 .total {
     font-size: 1.4em;
 }
@@ -36,11 +48,13 @@
 .list > .pair-entry {
     background-color: #ededed;
 }
+
 .avatar {
     height: 150px;
     float: left;
     border-radius: 5em;
 }
+
 .list a {
     text-decoration: none;
     color: #772222;

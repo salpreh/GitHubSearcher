@@ -14,6 +14,13 @@ export class GitSearchComponent implements OnInit {
   displayQuery: string;
   searchResults: GitRepositories;
   searchQuery: string;
+  navigationData = {
+    currentPage: 0,
+    entriesXPage: 0,
+    hasNext: false,
+    hasPrevious: false
+  };
+
   constructor(
     private gitSearchService: GitSearchService,
     private route: ActivatedRoute,
@@ -27,22 +34,50 @@ export class GitSearchComponent implements OnInit {
       this.gitSearch();
     });
 
+    this.navigationData.currentPage = 1;
+
     this.route.data.subscribe(data => {
       this.title = data.title;
     });
   }
 
   gitSearch(): void {
-    this.gitSearchService.gitSearch(this.searchQuery).then((response) => {
+    this.gitSearchService.gitRepositorySearch(this.searchQuery, this.navigationData.currentPage)
+    .then((response) => {
       this.searchResults = response;
+      this.checkNavigation();
     }, (error) => {
       alert('Error: ' + error.statusText);
     });
   }
 
+  nextPage(): void {
+    if (this.navigationData.hasNext) {
+      this.navigationData.currentPage++;
+      this.gitSearch();
+    }
+  }
+
+  previousPage(): void {
+    if (this.navigationData.hasPrevious) {
+      this.navigationData.currentPage--;
+      this.gitSearch();
+    }
+  }
+
   sendQuery(): void {
     this.searchResults = null;
     this.router.navigate([`/search/${this.searchQuery}`]);
+  }
+
+  checkNavigation(): void {
+    this.navigationData.hasPrevious = this.navigationData.currentPage > 1;
+
+    if (this.navigationData.currentPage === 1) {
+      this.navigationData.entriesXPage = this.searchResults.items.length;
+    }
+
+    this.navigationData.hasNext = this.searchResults.total_count > this.navigationData.currentPage * this.navigationData.entriesXPage;
   }
 
 }
