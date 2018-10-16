@@ -1,0 +1,15 @@
+{
+    "bar_icon": "assets/img/github_search_white_S.png",
+    "menu_entries": [
+        {
+            "title": "Home",
+            "route": "home",
+            "exact_route": true
+        },
+        {
+            "title": "Search",
+            "route": "search",
+            "exact_route": false
+        }
+    ]
+}

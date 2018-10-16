@@ -1,0 +1,27 @@
+nav {
+    height: 90px;
+    width: 100%;
+    background-color: var(--dark-gray);
+}
+img {
+    float: left;
+    height: 70px;
+    margin: 10px 25px 10px 10px;
+}
+.nav-bar-link {
+    float: left;
+    font-size: 1.3em;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--sat-light-blue);
+    line-height: 80px;
+    padding: 5px 5px;
+    margin-left: 15px;
+}
+.nav-bar-link:hover {
+    background-color: #272727;
+}
+
+.active-link {
+    color: var(--crimson-red);
+}

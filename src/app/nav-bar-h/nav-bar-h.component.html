@@ -1,0 +1,6 @@
+<nav>
+  <img [src]="navBarConfig.bar_icon" alt="Application icon">
+  <a class="nav-bar-link" *ngFor="let entry of navBarConfig.menu_entries"
+   [routerLink]="entry.route" routerLinkActive="active-link" [routerLinkActiveOptions]="entry.exact_route ? '{exact: true}' : '{exact: false}'">{{entry.title}}</a>
+
+</nav>

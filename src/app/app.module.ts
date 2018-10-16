@@ -9,9 +9,14 @@ import { AppComponent } from './app.component';
 import { GitSearchComponent } from './git-search/git-search.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NavBarHComponent } from './nav-bar-h/nav-bar-h.component';
 
 const appRoutes: Routes = [
   { path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  { path: 'home',
     component: HomePageComponent
   },
   { path: 'search',
@@ -37,7 +42,8 @@ const appRoutes: Routes = [
     AppComponent,
     GitSearchComponent,
     HomePageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NavBarHComponent
   ],
   imports: [
     BrowserModule,

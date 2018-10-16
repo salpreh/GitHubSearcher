@@ -7,4 +7,6 @@ body {
     --light-yellow: #e7dba7;
     --lightest-yellow: #f5f0d8;
     min-width: 500px;
+    margin: 0px;
+    padding: 0px;
 }
