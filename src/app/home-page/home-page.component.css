@@ -1,5 +1,6 @@
 .start-searching {
     text-decoration: none;
+    text-align: center;
 }
 .start-searching img {
     width: 60%;
@@ -14,4 +15,10 @@
 }
 .start-searching > img {
     margin-top: 40px;
+}
+.search-button {
+    display: block;
+    font-size: 1.5em;
+    margin: 20px auto;
+    color: var(--shaded-white);
 }
